@@ -41,6 +41,11 @@ pip install pandas matplotlib
     | `network_events_report.csv` | The main report with columns: `Device`, `Event`, `Count`, `Last_Seen`, and `Risk_Level`. |
     | `top_devices_by_event.png` | Bar chart visualizing the top 5 noisiest devices. |
 
+#### Sample Output
+The final report provides actionable insights for network operations.
+
+![Sample Log Analyzer Summary](Task%201/summary.png)
+
 ---
 
 ## Task 2: Multi-Service Flask Platform for Network Audit, Analytics & File Distribution
@@ -59,6 +64,11 @@ The platform provides two main routes: `/upload` and `/dashboard`.
     *   Routing Protocols (OSPF, BGP)
     *   ACL/Security Rules
 
+#### Sample Upload Interface
+The user-friendly interface allows for quick and easy configuration file submission.
+
+![Sample Upload Interface](Task%202/upload.png)
+
 #### 2. Network Configuration Validation
 The application performs critical network health checks on the parsed data:
 *   **Loopback Check:** Ensures every device has a configured `Loopback0` interface.
@@ -71,6 +81,11 @@ The application performs critical network health checks on the parsed data:
 *   **Routing Protocol Distribution:** A pie chart visualizing the number of devices running BGP versus OSPF.
 *   **Interface Density:** A bar chart showing the total number of interfaces configured per device.
 *   **Data Export:** Allows users to export the full validation and analytics data to **Excel** or **CSV** format.
+
+#### Sample Dashboard View
+The dashboard provides immediate visual feedback on validation and network statistics.
+
+![Sample Dashboard Tables](Task%202/tables.png)
 
 ### 🛠️ Setup and Installation
 
