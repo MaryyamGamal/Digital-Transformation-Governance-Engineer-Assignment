@@ -46,7 +46,7 @@ The final report provides actionable insights for network operations.
 
 ![Sample Log Analyzer Summary](Task%201/summary.png)
 
-![Sample Log Analyzer Graph](Task%201/graph.png)
+
 
 ---
 
@@ -88,7 +88,7 @@ The application performs critical network health checks on the parsed data:
 The dashboard provides immediate visual feedback on validation and network statistics.
 
 ![Sample Dashboard Tables](Task%202/tables.png)
-
+![Sample Dashboard Graph](Task%202/graph.png)
 ### 🛠️ Setup and Installation
 
 #### 1. Installation
