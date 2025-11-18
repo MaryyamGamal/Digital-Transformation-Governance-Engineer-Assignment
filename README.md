@@ -46,6 +46,8 @@ The final report provides actionable insights for network operations.
 
 ![Sample Log Analyzer Summary](Task%201/summary.png)
 
+![Sample Log Analyzer Graph](Task%201/graph.png)
+
 ---
 
 ## Task 2: Multi-Service Flask Platform for Network Audit, Analytics & File Distribution
