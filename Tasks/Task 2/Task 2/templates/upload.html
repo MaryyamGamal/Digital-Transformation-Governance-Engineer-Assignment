@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Configuration Files</title>
+    <style>
+        body {             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333; }
+        h1 { color: #1a237e; /* Deep Indigo */
+            border-bottom: 3px solid #1a237e;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 2em; }
+        .container {
+            max-width: 800px; /* Reduced from 1400px to make the box narrower */
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+ }
+        .nav-link { 
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #3949ab; /* Indigo */
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+ }
+        .nav-link:hover {
+            background-color: #303f9f; /* Darker Indigo */
+            color: white;
+            text-decoration: none;
+        }
+        .nav-link:active {
+            transform: scale(0.98);
+        }
+        /* Added export-button styles to match dashboard export buttons (green) */
+        .export-button {
+            background-color: #3949ab; /* Green */
+        }
+        .export-button:hover {
+            background-color: #3949ab; /* Darker Green */
+        }
+        /* Styling for file input button to match nav-link (indigo blue) */
+        input[type="file"]::-webkit-file-upload-button {
+            background-color: #3949ab; /* Indigo */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="file"]::-webkit-file-upload-button:hover {
+            background-color: #303f9f; /* Darker Indigo */
+        }
+        input[type="file"]::-moz-file-upload-button {
+            background-color: #3949ab; /* Indigo */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="file"]::-moz-file-upload-button:hover {
+            background-color: #303f9f; /* Darker Indigo */
+        }
+        input[type="file"]::-ms-file-upload-button {
+            background-color: #3949ab; /* Indigo */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="file"]::-ms-file-upload-button:hover {
+            background-color: #303f9f; /* Darker Indigo */
+        }
+        .upload-form { margin-top: 20px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Network Configuration Files</h1>
+        <p>
+            <a href="{{ url_for('dashboard') }}" class="nav-link export-button">Go to Dashboard</a>
+        </p>
+
+        <div class="upload-form">
+            <form method="POST" enctype="multipart/form-data">
+                <label for="file-upload">Select one or more .cfg or .conf files:</label><br><br>
+                <input type="file" id="file-upload" name="file" multiple accept=".cfg,.conf"><br><br>
+                <button type="submit" class="nav-link export-button">Upload and Analyze</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

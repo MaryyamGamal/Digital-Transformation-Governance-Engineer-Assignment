@@ -1,0 +1,67 @@
+2025-10-20 09:10:15 R1 INFO Interface GigabitEthernet0/1 changed state to up
+2025-10-20 09:10:18 R1 INFO Interface GigabitEthernet0/1 line protocol is up
+2025-10-20 09:11:24 R2 INFO Interface GigabitEthernet0/2 changed state to up
+2025-10-20 09:11:29 R2 INFO Interface GigabitEthernet0/2 line protocol is up
+2025-10-20 09:12:44 R3 WARNING Interface GigabitEthernet0/3 input errors detected
+2025-10-20 09:13:26 R3 INFO Interface GigabitEthernet0/3 changed state to down
+2025-10-20 09:14:03 R3 INFO Interface GigabitEthernet0/3 changed state to up
+2025-10-20 09:15:11 R4 ERROR SNMP authentication failure from 10.0.10.9
+2025-10-20 09:16:05 R4 INFO BGP neighbor 192.168.50.2 established
+2025-10-20 09:16:58 R4 INFO BGP neighbor 192.168.50.2 went down
+2025-10-20 09:17:49 R1 WARNING Temperature sensor 1 exceeded threshold
+2025-10-20 09:18:37 R1 INFO Temperature sensor 1 returned to normal
+2025-10-20 09:19:45 R2 INFO Interface GigabitEthernet0/3 changed state to down
+2025-10-20 09:20:18 R2 INFO Interface GigabitEthernet0/3 changed state to up
+2025-10-20 09:21:01 R2 INFO Interface GigabitEthernet0/3 line protocol is up
+2025-10-20 09:21:48 R3 ERROR SNMP authentication failure from 10.0.7.77
+2025-10-20 09:22:55 R4 INFO CPU utilization exceeded 95%
+2025-10-20 09:23:40 R4 INFO CPU utilization returned to normal
+2025-10-20 09:24:34 R1 INFO Interface GigabitEthernet0/1 changed state to down
+2025-10-20 09:25:05 R1 INFO Interface GigabitEthernet0/1 changed state to up
+2025-10-20 09:26:02 R1 INFO Interface GigabitEthernet0/1 line protocol is up
+2025-10-20 09:27:14 R2 WARNING Interface GigabitEthernet0/2 input errors detected
+2025-10-20 09:27:59 R2 INFO Interface GigabitEthernet0/2 changed state to down
+2025-10-20 09:28:45 R2 INFO Interface GigabitEthernet0/2 changed state to up
+2025-10-20 09:29:39 R3 ERROR SNMP authentication failure from 10.0.5.11
+2025-10-20 09:30:33 R3 WARNING Interface GigabitEthernet0/3 input errors detected
+2025-10-20 09:31:26 R4 INFO Temperature sensor 2 exceeded threshold
+2025-10-20 09:32:11 R4 INFO Temperature sensor 2 returned to normal
+2025-10-20 09:33:19 R1 INFO CPU utilization exceeded 90%
+2025-10-20 09:34:12 R1 INFO CPU utilization returned to normal
+2025-10-20 09:35:28 R2 INFO Interface GigabitEthernet0/3 changed state to down
+2025-10-20 09:36:03 R2 INFO Interface GigabitEthernet0/3 changed state to up
+2025-10-20 09:37:17 R3 ERROR SNMP authentication failure from 10.0.6.33
+2025-10-20 09:38:04 R4 WARNING Interface GigabitEthernet0/4 input errors detected
+2025-10-20 09:39:11 R4 INFO Interface GigabitEthernet0/4 changed state to down
+2025-10-20 09:40:00 R4 INFO Interface GigabitEthernet0/4 changed state to up
+2025-10-20 09:40:59 R1 INFO BGP neighbor 172.16.200.2 established
+2025-10-20 09:41:47 R1 INFO BGP neighbor 172.16.200.2 went down
+2025-10-20 09:42:41 R2 ERROR SNMP authentication failure from 10.0.5.22
+2025-10-20 09:43:33 R3 INFO BGP neighbor 10.10.20.2 established
+2025-10-20 09:44:21 R3 INFO BGP neighbor 10.10.20.2 went down
+2025-10-20 09:45:33 R4 INFO Temperature sensor 3 exceeded threshold
+2025-10-20 09:46:18 R4 INFO Temperature sensor 3 returned to normal
+2025-10-20 09:47:05 R1 WARNING Interface GigabitEthernet0/1 input errors detected
+2025-10-20 09:47:54 R1 INFO Interface GigabitEthernet0/1 changed state to down
+2025-10-20 09:48:37 R1 INFO Interface GigabitEthernet0/1 changed state to up
+2025-10-20 09:49:25 R1 INFO Interface GigabitEthernet0/1 line protocol is up
+2025-10-20 09:50:18 R2 INFO CPU utilization exceeded 85%
+2025-10-20 09:51:02 R2 INFO CPU utilization returned to normal
+2025-10-20 09:52:09 R3 ERROR SNMP authentication failure from 10.0.9.55
+2025-10-20 09:53:03 R4 INFO Interface GigabitEthernet0/4 changed state to down
+2025-10-20 09:53:55 R4 INFO Interface GigabitEthernet0/4 changed state to up
+2025-10-20 09:54:41 R1 WARNING Temperature sensor 4 exceeded threshold
+2025-10-20 09:55:35 R1 INFO Temperature sensor 4 returned to normal
+2025-10-20 09:56:22 R2 WARNING Interface GigabitEthernet0/2 input errors detected
+2025-10-20 09:57:14 R2 INFO Interface GigabitEthernet0/2 changed state to down
+2025-10-20 09:58:03 R2 INFO Interface GigabitEthernet0/2 changed state to up
+2025-10-20 09:59:00 R3 ERROR SNMP authentication failure from 10.0.5.66
+2025-10-20 09:59:53 R4 INFO CPU utilization exceeded 80%
+2025-10-20 10:00:49 R4 INFO CPU utilization returned to normal
+2025-10-20 10:01:40 R1 INFO BGP neighbor 10.10.10.5 established
+2025-10-20 10:02:30 R1 INFO BGP neighbor 10.10.10.5 went down
+2025-10-20 10:03:11 R2 INFO Interface GigabitEthernet0/3 line protocol is up
+2025-10-20 10:04:22 R3 WARNING Interface GigabitEthernet0/3 input errors detected
+2025-10-20 10:05:14 R4 ERROR SNMP authentication failure from 10.0.8.77
+2025-10-20 10:06:03 R4 INFO Temperature sensor 5 exceeded threshold
+2025-10-20 10:06:52 R4 INFO Temperature sensor 5 returned to normal

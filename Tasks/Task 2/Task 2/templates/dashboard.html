@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Network Device Dashboard</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        /* Container and Layout */
+        .container {
+            max-width: 1400px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header and Typography */
+        h1 {
+            color: #1a237e; /* Deep Indigo */
+            border-bottom: 3px solid #1a237e;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        h2 {
+            color: #3949ab; /* Indigo */
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-left: 5px solid #3949ab;
+            padding-left: 10px;
+        }
+
+        /* Navigation Links as Buttons */
+        .nav-link {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #3949ab; /* Indigo */
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* Override for export buttons to use a different color */
+        .export-button {
+            background-color: #4caf50; /* Green */
+        }
+        .export-button:hover {
+            background-color: #45a049; /* Darker Green */
+        }
+        .nav-link:hover {
+            background-color: #303f9f; /* Darker Indigo */
+            color: white;
+            text-decoration: none;
+        }
+        .nav-link:active {
+            transform: scale(0.98);
+        }
+
+        /* Charts Section */
+        .charts {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .chart-box {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            flex-grow: 1;
+            min-width: 400px;
+            max-width: 100%;
+            text-align: center;
+            background-color: #fcfcfc;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .chart-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            font-size: 0.9em;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #3949ab; /* Indigo */
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* Validation Status Styles */
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85em;
+            text-transform: uppercase;
+        }
+        .PASS { background-color: #e8f5e9; color: #2e7d32; } /* Light Green / Dark Green */
+        .WARN { background-color: #fff8e1; color: #ff8f00; } /* Light Yellow / Dark Yellow */
+        .FAIL { background-color: #ffebee; color: #c62828; } /* Light Red / Dark Red */
+        .N-A { background-color: #e3f2fd; color: #1565c0; } /* Light Blue / Dark Blue */
+
+        /* Error Message */
+        .error {
+            color: #c62828;
+            font-weight: bold;
+            padding: 15px;
+            background-color: #ffebee;
+            border: 1px solid #c62828;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        /* Export Buttons */
+        /* Export Buttons - Kept for future use, but links are now styled as buttons */
+        .export-buttons { 
+            margin-bottom: 20px; 
+            text-align: right;
+        }
+        .export-buttons a {
+            text-decoration: none;
+        }
+        .export-buttons button { 
+            padding: 10px 15px; 
+            margin-left: 10px; 
+            background-color: #4caf50; /* Green */
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .export-buttons button:hover { 
+            background-color: #45a049; 
+        }
+        .export-buttons button:active {
+            transform: scale(0.98);
+        }
+
+        /* Preformatted text for security rules */
+        pre {
+            white-space: pre-wrap;
+            margin: 0;
+            font-family: monospace;
+            font-size: 0.9em;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Network Audit Dashboard</h1>
+        <p>
+            <a href="{{ url_for('upload_file') }}" class="nav-link">Upload New Configurations</a>
+        </p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% else %}
+            {% if devices %}
+                
+                <div class="export-buttons">
+                    <a href="{{ url_for('export_data', file_format='csv') }}" class="nav-link export-button">Export to CSV</a>
+                    <a href="{{ url_for('export_data', file_format='excel') }}" class="nav-link export-button">Export to Excel</a>
+                </div>
+
+                <div class="charts">
+                    <div class="chart-box">
+                        <h2>Routing Protocol Distribution &amp; Interfaces per Device</h2>
+                        <img src="{{ pie_chart_url }}" alt="Combined Routing & Interfaces Chart" style="max-width: 100%; height: auto;">
+                    </div>
+                </div>
+
+                <h2>Validation Summary Table</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hostname</th>
+                            <th>Device Type</th>
+                            <th>Routing Protocol</th>
+                            <th>Interfaces Count</th>
+                            <th>Loopback0 Check</th>
+                            <th>IP Subnet Overlap</th>
+                            <th>Routing Consistency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for device in devices %}
+                        <tr>
+                            <td>{{ device.hostname }}</td>
+                            <td>{{ device.device_type }}</td>
+                            <td>{{ device.routing_protocol }}</td>
+                            <td>{{ device.interfaces.split(', ') | length if device.interfaces else 0 }}</td>
+                            <td><span class="status {{ device.validation_results.Loopback0_Check.status }}">{{ device.validation_results.Loopback0_Check.status }}</span></td>
+                            <td><span class="status {{ device.validation_results.IP_Subnet_Overlap_Check.status }}">{{ device.validation_results.IP_Subnet_Overlap_Check.status }}</span></td>
+                            <td><span class="status {{ device.validation_results.Routing_Consistency_Check.status }}">{{ device.validation_results.Routing_Consistency_Check.status }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+                <h2>Detailed Configuration Data</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hostname</th>
+                            <th>Interfaces (IP/Mask)</th>
+                            <th>Security Rules (Snippet)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for device in devices %}
+                        <tr>
+                            <td>{{ device.hostname }}</td>
+                            <td>{{ device.interfaces }}</td>
+                            <td><pre>{{ device.security_rules if device.security_rules else 'N/A' }}</pre></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+            {% else %}
+                <p>No device configurations found. Please upload files on the <a href="{{ url_for('upload_file') }}">Upload New Configurations</a> page.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
